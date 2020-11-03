@@ -1,0 +1,96 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+html {height: 100%; }
+
+body {
+    height: 100%;
+    background:#d6ddf1;
+}
+
+.todolist {
+    margin: 3rem auto;
+    max-width: 400px;
+    display:grid;
+    grid-template-areas: 
+    '. header .'
+    '. para .'
+    '. input .'
+    '. button .'
+    '. list .'
+    ;
+    background-color: #f0f0f0;
+    border: 3px solid rgba(233, 208, 225, 0.397);
+    border-radius: 15px;
+}
+
+h1 {  
+    grid-area: header;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: black;
+}
+
+p {  
+    grid-area: para;
+}
+
+input {
+    grid-area: input;
+    width: 250px;
+    margin:auto;
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 0;
+}
+
+ul {
+    grid-area: list;
+    margin-left: -1rem;
+}
+
+li {
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+button {
+    grid-area: button;
+    width: 100px;
+    margin: 1rem auto;
+    padding: 0.35rem;
+    background-color: #ffd8ed;
+    border-radius: 12px;
+    border:0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.liBtn {
+    background-color: transparent;
+    width: 30px;
+    margin-left: 1rem;
+    font-size: 1.25rem;
+    border-style: none;
+}
+
+.done {
+    text-decoration: line-through 2.5px #6d3754;
+}
+
+
+/* Media queries */
+
+@media screen and (max-width: 450px) {
+    .todolist {
+        margin: 1rem auto;
+        max-width: 96vw;
+    }
+}
