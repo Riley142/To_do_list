@@ -2,10 +2,9 @@ const listTitle = document.querySelector('h1');
 const button = document.getElementById("btn");
 const input = document.getElementById("userInput");
 const ul = document.querySelector("ul")
-const deleteBtns = document.getElementsByClassName("delete");
 const items = ul.getElementsByTagName("li");
 
-newListTitle = prompt("How would You like to name Your list?");
+let newListTitle = prompt("How would You like to name Your list?");
 listTitle.innerHTML = newListTitle;
 
 
@@ -14,15 +13,15 @@ function removeParent(evt) {
   evt.target.parentNode.remove();
 }
 
-function getEventTarget(e){
-	e = e || window.event;
-	return e.target || e.srcElement;
+function grabEventTarget(evt){
+	evt = evt || window.event;
+	return evt.target || evt.srcElement; // .srcElement fro IE .target for other browsers 
 }
 
-ul.onclick = function(event){
-	const target = getEventTarget(event);
+ul.onclick = function(evt){
+	const target = grabEventTarget(evt);
 	target.classList.toggle("done");
-}
+} 
 
 function createListElement() {
 	const btn = document.createElement("button");
@@ -32,11 +31,9 @@ function createListElement() {
 
 	const li = document.createElement("li");
 	li.appendChild(document.createTextNode(input.value));
-	li.innerHTML = li.innerHTML + " ";
 	li.appendChild(btn);
-
 	ul.appendChild(li);
-	input.value="";
+	input.value=""; //cleare input field after every entry 
 }
 
 function inputLength(){
@@ -49,12 +46,11 @@ function addToListAfterClick(){
 		}
 }
 
-function addToListAfterKeypress(event){
-	if(inputLength() > 0 && event.keyCode === 13) {
+function addToListAfterKeypress(evt){
+	if(inputLength() > 0 && evt.keyCode === 13) {
 		createListElement();
 	}
 }
-
 
 button.addEventListener("click", addToListAfterClick);
 input.addEventListener("keypress", addToListAfterKeypress);
